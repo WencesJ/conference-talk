@@ -12,7 +12,7 @@ const ChatContainer = ({ me, chatTalk }) => {
   const username = `${me.firstName} ${me.lastName}`;
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState(
-    JSON.parse(window.localStorage.getItem(chatTalk)) || []
+    JSON.parse(window.localStorage.getItem(`${chatTalk}-${me.email}`)) || []
   );
 
   const sendMessage = async () => {
@@ -35,7 +35,7 @@ const ChatContainer = ({ me, chatTalk }) => {
 
       await socket.emit("send_message", messageData);
       window.localStorage.setItem(
-        chatTalk,
+        `${chatTalk}-${me.email}`,
         JSON.stringify([...messageList, messageData], null, 2)
       );
       setMessageList((list) => [...list, messageData]);
@@ -47,7 +47,7 @@ const ChatContainer = ({ me, chatTalk }) => {
     socket.on("receive_message", (data) => {
       if (data.email != me.email) {
         window.localStorage.setItem(
-          chatTalk,
+          `${chatTalk}-${me.email}`,
           JSON.stringify([...messageList, data], null, 2)
         );
         setMessageList((list) => [...list, data]);
@@ -58,7 +58,9 @@ const ChatContainer = ({ me, chatTalk }) => {
   useEffect(() => {
     if (chatTalk != "" || chatTalk != undefined)
       socket.emit("join_room", chatTalk);
-    setMessageList(JSON.parse(window.localStorage.getItem(chatTalk)) || []);
+    setMessageList(
+      JSON.parse(window.localStorage.getItem(`${chatTalk}-${me.email}`)) || []
+    );
   }, [chatTalk]);
 
   return (
