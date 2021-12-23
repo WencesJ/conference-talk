@@ -1,0 +1,39 @@
+.btn1 {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #BA3F1D;
+    border: none;
+    color: #fff;
+    text-align: center;
+    font-size: 17px;
+    padding: 11px;
+    width: 130px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+   }
+   
+   .btn1 span1 {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+   }
+   
+   .btn1 span1:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: 0.5s;
+   }
+   
+   .btn1:hover span1 {
+    padding-right: 15px;
+   }
+   
+   .btn1:hover span1:after {
+    opacity: 1;
+    right: 0;
+   }
