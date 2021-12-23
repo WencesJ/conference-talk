@@ -11,7 +11,7 @@ const TalkList = ({ className }) => {
   useEffect(() => {
     axios
       .request({
-        baseURL: "http://localhost:5000/api/v1/",
+        baseURL: "https://conf-chat.herokuapp.com/api/v1/",
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",

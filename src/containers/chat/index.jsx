@@ -6,7 +6,7 @@ import { MyChatTab, OtherChatTab } from "./chatTab";
 import ScrollToBottom from "react-scroll-to-bottom";
 import io from "socket.io-client";
 
-const socket = io.connect("http://localhost:5000");
+const socket = io.connect("https://conf-chat.herokuapp.com");
 
 const ChatContainer = ({ me, chatTalk }) => {
   const username = `${me.firstName} ${me.lastName}`;
