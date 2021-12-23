@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ["./public/index.html", "./src/**/*.{js, jsx}"],
+  purge: [ "./src/pages/**/*.{js,ts,jsx,tsx}", "./src/components/**/*.{js,ts,jsx,tsx}", "./src/constants/**/*.{js,ts,jsx,tsx}", "./src/containers/**/*.{js,ts,jsx,tsx}", "./src/context/**/*.{js,ts,jsx,tsx}", ],
   enabled: process.env.NODE_ENV === "production",
   darkMode: "class",
   theme: {
