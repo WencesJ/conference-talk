@@ -5,7 +5,9 @@ import LoginPage from '../containers/loginSignup/loginPage';
 const Home = () => {
     return (
         <LayoutBack>
+            
          <LoginPage/>
+            
         </LayoutBack>
     );
 };
